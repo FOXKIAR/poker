@@ -16,32 +16,28 @@ public class User {
     private LinkedList<Card> playerCards = new LinkedList<>();
 
     /**
-     * 用户的出牌行为
-     * @param cards 实体类列表：{@link Card}
+     * 用户出牌行为
      */
     public void discardCards(List<Card> cards) {
-        for (Card card : cards)
-            playerCards.remove(card);
+        playerCards.removeAll(cards);
     }
 
     /**
-     * 用户的抽牌行为
-     * @param cards 实体类列表：{@link Card}
+     * 用户抽牌行为
      */
     public void drawCards(List<Card> cards) {
         playerCards.addAll(cards);
     }
 
     /**
-     * 用户的洗牌行为
+     * 用户洗牌行为
      */
     public void sortPlayerCards() {
         playerCards.sort(Card::compareTo);
     }
 
     /**
-     * 用于判断是否获胜
-     * @return {@link Boolean}
+     * 判断用户是否获胜
      */
     public boolean isWinVictory() {
         return !playerCards.isEmpty();

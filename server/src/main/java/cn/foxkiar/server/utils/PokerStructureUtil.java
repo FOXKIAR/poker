@@ -3,6 +3,7 @@ package cn.foxkiar.server.utils;
 import cn.foxkiar.server.entity.Card;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class PokerStructureUtil {
@@ -28,7 +29,7 @@ public class PokerStructureUtil {
     public static List<Card> haveJoker() {
         List<Card> cards = noJoker();
         cards.add(new Card("彩色", 6, "Joker", 15));
-        cards.add(new Card("黑白", 5, "Joker", 15));
+        cards.add(new Card("黑白", 5, "Joker", 14));
         return cards;
     }
 
@@ -37,6 +38,11 @@ public class PokerStructureUtil {
         while (count-- > 0) {
             cards.addAll(haveJoker());
         }
+        return cards;
+    }
+
+    public static List<Card> shuffle(List<Card> cards) {
+        Collections.shuffle(cards);
         return cards;
     }
 
