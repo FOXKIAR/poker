@@ -1,7 +1,10 @@
 import {createRouter, createWebHistory} from "vue-router"
 
 const routers = [
-    { path: "/", component: () => import('../pages/index.vue') }
+    {
+        path: "/index",
+        component: () => import('../pages/index.vue')
+    }
 ]
 
 const router = createRouter({

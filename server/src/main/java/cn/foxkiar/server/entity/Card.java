@@ -15,7 +15,7 @@ public class Card implements Comparable<Card> {
 
     /**
      * 实现接口排序规则方法 <br>
-     * 先根据{@link Card#number}排序，如果相等则对{@link Card#colorSize}排序
+     * 先根据{@link Card#number}排序，如果相等则根据{@link Card#colorSize}排序
      */
     @Override
     public int compareTo(Card card) {
