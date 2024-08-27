@@ -1,15 +1,19 @@
-import {createRouter, createWebHistory} from "vue-router"
+import {createRouter, createWebHashHistory} from "vue-router"
 
 const routers = [
     {
         path: "/index",
-        component: () => import('../pages/index.vue')
+        component: () => import("../pages/index.vue")
+    },
+    {
+        path: "/content",
+        component: () => import("../pages/content.vue")
     }
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
-    routers
+    history: createWebHashHistory(),
+    routes: routers
 })
 
 export default router
