@@ -13,7 +13,7 @@ import java.util.*;
 public class User {
     private String username;
     private Session session;
-    private LinkedList<Card> playerCards = new LinkedList<>();
+    private LinkedList<Card> playerCards;
 
     /**
      * 用户出牌行为
