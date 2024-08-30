@@ -9,6 +9,7 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,13 +31,21 @@ public class CalcGameEndpoint {
         User user =new User(username, session, new LinkedList<>());
         // LinkedList 在多修改少读取的情况下效率高
         this.fieldCards.addAll(PokerStructureUtil.noJoker());
-        for (CalcGameEndpoint temp : this.calcGames) {
-            if (temp.room.equals(room))
-                temp.users.add(user); break;
+        if (calcGames.contains(this)) {
+            for (CalcGameEndpoint temp : this.calcGames) {
+                if (temp.equals(this))
+                    temp.users.add(user); break;
+            }
         }
         calcGames.add(this);
     }
 
+
+    private void sendNewUserMsg(List<User> toUsers, User newUser) throws IOException {
+        for (User user : toUsers) {
+            user.getSession().getBasicRemote().sendText(newUser.getUsername() + "加入房间");
+        }
+    }
 
     /**
      * 重写父类对象{@link Object#equals(Object obj)}方法以简化判断是否存在逻辑
