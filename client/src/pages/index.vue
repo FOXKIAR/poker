@@ -1,8 +1,63 @@
-<script>
-
+<script setup>
+  const cards = [
+    "彩色Joker.jpg",
+    "方片1.jpg",
+    "方片2.jpg",
+    "方片3.jpg",
+    "方片4.jpg",
+    "方片5.jpg",
+    "方片6.jpg",
+    "方片7.jpg",
+    "方片8.jpg",
+    "方片9.jpg",
+    "方片10.jpg",
+    "方片11.jpg",
+    "方片12.jpg",
+    "方片13.jpg",
+    "梅花1.jpg",
+    "梅花2.jpg",
+    "梅花3.jpg",
+    "梅花4.jpg",
+    "梅花5.jpg",
+    "梅花6.jpg",
+    "梅花7.jpg",
+    "梅花8.jpg",
+    "梅花9.jpg",
+    "梅花10.jpg",
+    "梅花11.jpg",
+    "梅花12.jpg",
+    "梅花13.jpg",
+    "红桃1.jpg",
+    "红桃2.jpg",
+    "红桃3.jpg",
+    "红桃4.jpg",
+    "红桃5.jpg",
+    "红桃6.jpg",
+    "红桃7.jpg",
+    "红桃8.jpg",
+    "红桃9.jpg",
+    "红桃10.jpg",
+    "红桃11.jpg",
+    "红桃12.jpg",
+    "红桃13.jpg",
+    "黑桃1.jpg",
+    "黑桃2.jpg",
+    "黑桃3.jpg",
+    "黑桃4.jpg",
+    "黑桃5.jpg",
+    "黑桃6.jpg",
+    "黑桃7.jpg",
+    "黑桃8.jpg",
+    "黑桃9.jpg",
+    "黑桃10.jpg",
+    "黑桃11.jpg",
+    "黑桃12.jpg",
+    "黑桃13.jpg",
+    "黑白Joker.jpg"
+  ]
 </script>
 <template>
-  首页 - foxkiar.cn
+  <img v-for="card in cards" v-bind:src="'../../public/cards/'+card" alt="">
 </template>
 <style>
 
