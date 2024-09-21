@@ -17,7 +17,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 
 @Component
-@ServerEndpoint(value = "{username}/calc/{room}")
+@ServerEndpoint(value = "/{username}/calc/{room}")
 public class CalcGameEndpoint {
     private String room;
     private final List<User> users = new ArrayList<>();
