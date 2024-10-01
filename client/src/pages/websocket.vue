@@ -1,5 +1,22 @@
 <script setup>
-let websocket = new WebSocket("ws://172.24.118.21:8080/test");
+import ip_port from '../config/network.js'
+let websocket = new WebSocket("ws://"+ ip_port +"/test");
+
+// 连接打开
+websocket.onopen = e => {
+  console.log("连接打开");
+
+  // 创建连接后，往服务器连续写入3条消息
+  websocket.send("springdoc.cn");
+  websocket.send("springdoc.cn");
+  websocket.send("springdoc.cn");
+
+  // 最后发送 bye，由服务器断开连接
+  websocket.send("bye");
+
+  // 也可以由客户端主动断开
+  websocket.close();
+}
 
 // 连接断开
 websocket.onclose = e => {
@@ -14,21 +31,7 @@ websocket.onerror = e => {
   console.log("连接异常")
   console.error(e)
 }
-// 连接打开
-websocket.onopen = e => {
-  console.log("连接打开");
 
-  // 创建连接后，往服务器连续写入3条消息
-  websocket.send("springdoc.cn");
-  websocket.send("springdoc.cn");
-  websocket.send("springdoc.cn");
-
-  // 最后发送 bye，由服务器断开连接
-  websocket.send("bye");
-
-  // 也可以由客户端主动断开
-  // websocket.close();
-}
 </script>
 
 <template>

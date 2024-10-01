@@ -30,13 +30,6 @@ public class User {
     }
 
     /**
-     * 用户洗牌行为
-     */
-    public void sortPlayerCards() {
-        playerCards.sort(Card::compareTo);
-    }
-
-    /**
      * 判断用户是否获胜
      */
     public boolean isWinVictory() {
